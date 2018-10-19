@@ -1,0 +1,63 @@
+<script>
+    function rockPaperScissors(playerChoice, compChoice){
+        playerChoice = playerChoice.toLowerCase();
+        if (playerChoice === "rock" && compChoice ==="scissors"){
+            return "You Win!";
+        }
+        else if (playerChoice === "paper" && compChoice === "rock"){
+            return "You Win!";
+        }
+        else if (playerChoice === "scissors" && compChoice === "paper"){
+            return "You Win!";
+        }
+        else if (playerChoice === compChoice){
+            return "Tie!";
+        }
+        else if (playerChoice != "rock" || playerChoice != "scissors" || playerChoice != "paper"){
+            return "You have to pick rock paper or scissors!"
+        }
+        else{
+            return "You Lose!";
+        }
+    }
+    function game(){
+        let score = 0;
+        let rand, gameResult;
+        while (score < 5 && score > -5){
+            rand = Math.floor((Math.random() *3) + 1);
+            if (rand === 1){
+                randChoice = "scissors";
+            }
+            else if (rand === 2){
+                randChoice = "paper"
+            }
+            else{
+                randChoice = "rock"
+            }
+            gameResult = rockPaperScissors(prompt("pick rock paper or scissors"),randChoice);
+            console.log(`The computer picked ${randChoice}`)
+            if (gameResult === "You Win!"){
+                score++;
+                console.log(`${gameResult} The new Score is: ${score}`);
+            }
+            else if (gameResult ==="You Lose!"){
+                score --;
+                console.log(score);
+            }
+            else if (gameResult === "Tie!"){
+                console.log(gameResult + score);
+            }
+            else{
+                console.log(gameResult)
+            }
+            if (score === 5){
+                return "YOU WON!"
+            }
+            else if (score === -5){
+                return "YOU LOST!"
+            }
+        }
+                
+            
+    }
+</script>
