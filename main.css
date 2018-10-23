@@ -1,0 +1,11 @@
+.choiceButtons{
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+.choiceButtons button{
+    font-size: 3em;
+}
+.result{
+    text-align: center;
+}
