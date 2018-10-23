@@ -24,7 +24,19 @@ function rockPaperScissors(playerChoice, compChoice) {
 let score = 0;
 const presentResult = document.createElement("h1");
 function playRound(playerChoice) {
+     //initializes area where result
+     const resultDiv = document.querySelector(".result");
+    //Resets the game to 0 if at max score and erases previous game results
+    if (score === 5 || score === -5){score = 0;}
+    while (resultDiv.firstChild) {
+        resultDiv.removeChild(resultDiv.firstChild)
+    }
+    
+    //init variables
+    
     let rand, gameResult;
+
+    //makes random choice for computer choice
     rand = Math.floor((Math.random() * 3) + 1);
         if (rand === 1) {
             randChoice = "scissors";
@@ -44,8 +56,21 @@ function playRound(playerChoice) {
             score--;
         }
 
+        //detects if player has lost or won and shows messages
+        if (score === 5){
+            const presentWinner = document.createElement('h1');
+            presentWinner.textContent = "YOU WIN THE GAME!";
+            presentWinner.setAttribute("style", "color: blue; font-size: 4em" )
+            resultDiv.appendChild(presentWinner);
+        }
+        else if (score === -5){
+            const presentWinner = document.createElement('h1');
+            presentWinner.textContent = "YOU LOSE THE GAME!"
+            presentWinner.setAttribute("style", "color: red; font-size: 4em" )
+            resultDiv.appendChild(presentWinner);
+        }
 
-
+        //displays results
         const presentCompChoice = document.createElement("h2")
         presentCompChoice.textContent = `The computer picked ${randChoice}`;
 
@@ -55,12 +80,7 @@ function playRound(playerChoice) {
         const presentScore = document.createElement("h1");
         presentScore.textContent = `Current score is ${score}`;
 
-        const resultDiv = document.querySelector(".result");
         presentResult.textContent = gameResult;
-
-        while (resultDiv.firstChild) {
-            resultDiv.removeChild(resultDiv.firstChild)
-        }
         
 
         resultDiv.appendChild(presentCompChoice)

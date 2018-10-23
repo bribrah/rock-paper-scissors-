@@ -1,7 +1,17 @@
+.title{
+    text-align: center;
+    font-size: 3em;
+}
+.subtitle{
+    display: block;
+    text-align: center;
+    margin-top: 13%;
+    font-size: 2.5em;
+}
 .choiceButtons{
     display: block;
     text-align: center;
-    margin: auto;
+    margin-top: 1%;
 }
 .choiceButtons button{
     font-size: 3em;
